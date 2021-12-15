@@ -6,29 +6,34 @@
     "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
     "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
     "test": "SKIP_PREFLIGHT_CHECK=true react-scripts test",
-    "eject": "SKIP_PREFLIGHT_CHECK=true react-scripts eject"
+    "eject": "SKIP_PREFLIGHT_CHECK=true react-scripts eject",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@hookform/resolvers": "^2.5.0",
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^13.1.9",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.3.0",
-    "@types/react": "^17.0.5",
-    "@types/react-dom": "^17.0.5",
+    "@hookform/resolvers": "^2.8.5",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "framer-motion": "^4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hook-form": "^7.6.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3",
-    "typescript": "^4.2.4",
-    "web-vitals": "^1.1.2",
-    "yup": "^0.32.9"
+    "react-hook-form": "^7.22.1",
+    "react-router-dom": "^6.1.1",
+    "react-scripts": "^5.0.0",
+    "typescript": "^4.5.4",
+    "web-vitals": "^2.1.2",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.13",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-router-dom": "^5.3.2",
+    "@types/yup": "^0.29.13"
   },
   "eslintConfig": {
     "extends": [
@@ -47,9 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/react-router-dom": "^5.1.7",
-    "@types/yup": "^0.29.11"
   }
 }

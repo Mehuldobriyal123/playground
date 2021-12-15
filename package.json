@@ -12,15 +12,16 @@
   "scripts": {
     "web:start": "yarn workspace @playground/web start",
     "web:build": "yarn workspace @playground/web build",
+    "web:test": "yarn workspace @playground/web test",
+    "web:tsc": "yarn workspace @playground/web tsc",
     "server:start": "yarn workspace @playground/server start",
     "server:build": "yarn workspace @playground/server build",
     "server:test": "yarn workspace @playground/server test",
     "server:serve": "yarn workspace @playground/server serve",
     "server:lint": "yarn workspace @playground/server lint",
     "server:format": "yarn workspace @playground/server format",
-    "lint:staged": "lint-staged",
-    "build": "yarn workspace @playground/web build & yarn workspace @playground/server build",
-    "update-schema": "yarn workspace @playground/server update-schema"
+    "update-schema": "yarn workspace @playground/server update-schema",
+    "lint:staged": "lint-staged"
   },
   "resolutions": {
     "graphql": "^15.5.0"
