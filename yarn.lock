@@ -3658,9 +3658,9 @@
     "@types/koa" "*"
 
 "@types/koa-helmet@^6.0.2":
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/@types/koa-helmet/-/koa-helmet-6.0.2.tgz#715203c6e76903430fdc5b9d1b84e9a463b2b6cf"
-  integrity sha512-b/nCrjlMWTEoQrR9x3JiJ3RVn6CgvTuiZywWOwD6dnN0h6ZRcGi7tjnRPNOydCUYfBjDmMaqGgEoCBCCXY2Hrg==
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/@types/koa-helmet/-/koa-helmet-6.0.4.tgz#d908fff8fe25e1d50765f107c1fcd9b89e8a54e3"
+  integrity sha512-cSmbgKkUauVqQWPFKXEsJTcuLfkxJggXlbgeiqIeZwTz3aQpyJktrWjhOkpD7Iq5Lcq1G9TTKlj0pFZWIg6EbQ==
   dependencies:
     "@types/koa" "*"
     helmet "^4.0.0"
