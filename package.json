@@ -1,38 +1,64 @@
 {
   "name": "playground",
-  "version": "0.1.0",
-  "description": "Playground using React, Emotion, Relay, GraphQL, MongoDB.",
   "private": true,
+  "version": "0.1.0",
+  "description": "A modern boilerplate for modern applications.",
   "author": "Leonardo Maldonado <leonardomso11@gmail.com>",
+  "packageManager": "yarn@1.22.17",
   "workspaces": {
     "packages": [
+      "apps/*",
       "packages/*"
+    ],
+    "nohoist": [
+      "**/react-native",
+      "**/react-native/**",
+      "**/.prisma/**",
+      "**/.prisma",
+      "**/@prisma/**",
+      "**/@prisma",
+      "**/prisma/**",
+      "**/prisma"
     ]
   },
   "scripts": {
-    "web:start": "yarn workspace @playground/web start",
-    "web:build": "yarn workspace @playground/web build",
-    "web:test": "yarn workspace @playground/web test",
-    "web:tsc": "yarn workspace @playground/web tsc",
-    "server:start": "yarn workspace @playground/server start",
-    "server:build": "yarn workspace @playground/server build",
-    "server:test": "yarn workspace @playground/server test",
-    "server:serve": "yarn workspace @playground/server serve",
-    "server:lint": "yarn workspace @playground/server lint",
-    "server:format": "yarn workspace @playground/server format",
-    "update-schema": "yarn workspace @playground/server update-schema",
-    "lint:staged": "lint-staged"
-  },
-  "resolutions": {
-    "graphql": "^15.5.0"
-  },
-  "dependencies": {
-    "lerna": "^4.0.0"
+    "dev": "turbo run dev --no-cache --parallel --continue",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "pods": "turbo run pods",
+    "generate": "turbo run generate",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "landing:dev": "turbo run dev --scope=landing",
+    "landing:build": "turbo run build --scope=landing",
+    "landing:lint": "turbo run lint --scope=landing",
+    "landing:format": "turbo run format --scope=landing",
+    "landing:typecheck": "turbo run typecheck --scope=landing",
+    "server:start": "turbo run start --scope=server",
+    "server:build": "turbo run build --scope=server",
+    "server:test": "turbo run test --scope=server",
+    "server:lint": "turbo run lint --scope=server",
+    "server:format": "turbo run format --scope=server",
+    "server:typecheck": "turbo run typecheck --scope=server",
+    "server:generate": "turbo run generate --scope=server",
+    "web:start": "turbo run start --scope=web",
+    "web:build": "turbo run build --scope=web",
+    "web:test": "turbo run test --scope=web",
+    "web:lint": "turbo run lint --scope=web",
+    "web:format": "turbo run format --scope=web",
+    "web:typecheck": "turbo run typecheck --scope=web",
+    "web:cypress:verify": "turbo run cypress:verify --scope=web",
+    "web:cypress:info": "turbo run cypress:info --scope=web",
+    "web:cypress:version": "turbo run cypress:version --scope=web",
+    "web:cypress:cache:list": "turbo run cypress:cache:list --scope=web",
+    "web:cypress:open": "turbo run cypress:open --scope=web",
+    "web:cypress:run": "turbo run cypress:run --scope=web",
+    "web:relay": "turbo run relay --scope=web"
   },
   "devDependencies": {
-    "husky": "^6.0.0",
-    "lint-staged": "^11.0.0",
-    "prettier": "^2.3.0",
-    "typescript": "^4.2.4"
+    "prettier": "^2.5.1",
+    "turbo": "latest"
   }
 }

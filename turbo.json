@@ -1,0 +1,37 @@
+{
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "dev": {
+      "cache": false
+    },
+    "build": {
+      "outputs": ["dist/**", ".next/**"],
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "outputs": ["coverage/**"],
+      "dependsOn": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "format": {
+      "outputs": []
+    },
+    "typecheck": {
+      "outputs": []
+    },
+    "pods": {
+      "outputs": ["ios/Pods/**"]
+    },
+    "relay": {
+      "outputs": []
+    },
+    "generate": {
+      "outputs": ["prisma/**", "generated/**"]
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}
