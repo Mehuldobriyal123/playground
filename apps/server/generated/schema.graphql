@@ -1,0 +1,35 @@
+type Admin {
+  country: String!
+  createdAt: DateTime!
+  email: String!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  phone: String!
+  updatedAt: DateTime!
+}
+
+scalar DateTime
+
+type Error {
+  message: String!
+}
+
+scalar JSON
+
+"""AdminMutation"""
+type Mutation {
+  AdminSignIn(email: String!, password: String!): String!
+  AdminSignUp(email: String!, password: String!): String!
+  AdminUpdate(id: String!): String!
+}
+
+type Query {
+  admin(id: String!): QueryAdminResult!
+}
+
+union QueryAdminResult = Error | QueryAdminSuccess
+
+type QueryAdminSuccess {
+  data: Admin!
+}
