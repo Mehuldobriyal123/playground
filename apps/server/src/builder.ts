@@ -77,4 +77,6 @@ const builder = new SchemaBuilder<SchemaOptions>({
   },
 });
 
+builder.queryType({});
+
 export default builder;
