@@ -78,5 +78,6 @@ const builder = new SchemaBuilder<SchemaOptions>({
 });
 
 builder.queryType({});
+builder.mutationType({});
 
 export default builder;
