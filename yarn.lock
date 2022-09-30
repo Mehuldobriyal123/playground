@@ -2955,10 +2955,10 @@
   resolved "https://registry.yarnpkg.com/@pothos/plugin-simple-objects/-/plugin-simple-objects-3.5.0.tgz#89fdaac0d8d1a1d9eaec07751bc991e097738658"
   integrity sha512-nlkdGttPEAvk91HPdtG/YMiCsba+o8+0H/ajdePS1ZLsAS2MZvQXjzv8PMsWHLbuVPFTmEafsb7Qao+IFqygoA==
 
-"@pothos/plugin-tracing@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@pothos/plugin-tracing/-/plugin-tracing-0.4.0.tgz#970534bf2ad5be9b0db0dc874d494386173c1e51"
-  integrity sha512-jc9SnPWCBTXWTnzaJFFJiKz7nkWkRPw2Tj1YgCI990FG5Qn2Kx47tslNyD9uHLzw0YPAKAOIS6QuYAf+RVqoYg==
+"@pothos/plugin-tracing@^0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@pothos/plugin-tracing/-/plugin-tracing-0.5.4.tgz#e3e473b76949db7266292a746e33b4d52411b1a6"
+  integrity sha512-Z7yZnVFsA7T+docsEex6Hdaq0zEiEZtVItgeqHfjoXivT6RW25ZbrvYLohtjgMuxHytQOIvY9a/IyBxBzFkWVA==
 
 "@pothos/plugin-validation@^3.7.0":
   version "3.7.0"
