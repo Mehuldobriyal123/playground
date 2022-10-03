@@ -2960,10 +2960,10 @@
   resolved "https://registry.yarnpkg.com/@pothos/plugin-tracing/-/plugin-tracing-0.5.4.tgz#e3e473b76949db7266292a746e33b4d52411b1a6"
   integrity sha512-Z7yZnVFsA7T+docsEex6Hdaq0zEiEZtVItgeqHfjoXivT6RW25ZbrvYLohtjgMuxHytQOIvY9a/IyBxBzFkWVA==
 
-"@pothos/plugin-validation@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@pothos/plugin-validation/-/plugin-validation-3.7.0.tgz#14b0b9c105eb9484f3cf41c83ae3eacda0d64546"
-  integrity sha512-2ju+FMaBZt156Yg+aDAxVdvNulSKVZszMLNBrp6/3iL+X2HWAt0JESvO6Ey9c7eRYpXiZ7iwO7ZGUhdgbqPO0A==
+"@pothos/plugin-validation@^3.8.4":
+  version "3.8.4"
+  resolved "https://registry.yarnpkg.com/@pothos/plugin-validation/-/plugin-validation-3.8.4.tgz#4d580a418c55d2cfc83ea91a16bd47aa2ba35ef3"
+  integrity sha512-wsN/0IvNI3+gTss3/k9x5HMoZRPXJQzjX/ebL2BKXRhcWWgkg/8+eky+PYmkTVjVy4IpF3KTQ6d6GxmWPArYqw==
 
 "@prisma/client@^4.3.1":
   version "4.3.1"
@@ -3413,12 +3413,12 @@
   dependencies:
     remove-accents "0.4.2"
 
-"@tanstack/react-table@^8.5.13":
-  version "8.5.13"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-table/-/react-table-8.5.13.tgz#a394c4db1cbcd63eb0c5fa2244a963da28f246c4"
-  integrity sha512-k52HsnonKwDZMCIy59HfehTnkJYlqkqyvC+BAV0DyWdN9WmSbVq+Kf+luJVENQnXcnEX47dBHiHAjqZu592ZLQ==
+"@tanstack/react-table@^8.5.15":
+  version "8.5.15"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-table/-/react-table-8.5.15.tgz#8179d24d7fdf909799a517e8897501c44e51284d"
+  integrity sha512-9rSvhIFeMpfXksFgQNTWnVoJbkae/U8CkHnHYGWAIB/O0Ca51IKap0Rjp5WkIUVBWxJ7Wfl2y13oY+aWcyM6Rg==
   dependencies:
-    "@tanstack/table-core" "8.5.13"
+    "@tanstack/table-core" "8.5.15"
 
 "@tanstack/react-virtual@^3.0.0-alpha.0":
   version "3.0.0-alpha.0"
@@ -3428,10 +3428,10 @@
     "@babel/runtime" "^7.16.7"
     "@reach/observe-rect" "^1.1.0"
 
-"@tanstack/table-core@8.5.13":
-  version "8.5.13"
-  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.5.13.tgz#7ad94fcc9db72f3eb0ed7dbb9c511a6bd7ff9a06"
-  integrity sha512-kvDRjC7LrLNNNgUMfsBz3nHOwbBLFdosWQ16dfbD9D/OJrvFHRXoUIPzF0MNqqSPghaj7/18fnwXHGypvzoh9Q==
+"@tanstack/table-core@8.5.15":
+  version "8.5.15"
+  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.5.15.tgz#e1e674135cd6c36f29a1562a2b846f824861149b"
+  integrity sha512-k+BcCOAYD610Cij6p1BPyEqjMQjZIdAnVDoIUKVnA/tfHbF4JlDP7pKAftXPBxyyX5Z1yQPurPnOdEY007Snyg==
 
 "@testing-library/dom@^8.5.0":
   version "8.18.1"
