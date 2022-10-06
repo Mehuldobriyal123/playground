@@ -2664,12 +2664,12 @@
   resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-5.4.2.tgz#0612ffa6a242ef72126fe81ee0bb3da4ba18b807"
   integrity sha512-JnRsWYV0AWPd249qtkmTWDAbxsBf7vxf8jGUVYHCI7Wz6Ukw0PnnzjEkPCdfwuiuiVk1+wnQ/qVIKqHzu2kdVQ==
 
-"@mantine/modals@^5.4.1":
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/@mantine/modals/-/modals-5.4.1.tgz#119dcbc680d82246f47efa25a43375f83345c4f1"
-  integrity sha512-eTVqTwH0/0y5V502b4RlTg4ZBMzc3KfYTCVPmE5pUttLWNYYd93ENBy6u1sM79jCQAN88l3XQ7wwd1KqtU5/Jg==
+"@mantine/modals@^5.5.4":
+  version "5.5.4"
+  resolved "https://registry.yarnpkg.com/@mantine/modals/-/modals-5.5.4.tgz#53fc01dd8f65ae791b24907ffc82118bea68d24e"
+  integrity sha512-N5VOSB2RGYgcbinBq7mivP1yqAiE7e4PV/wu1oPmCO5vF5RnWcfbxyppaxADvw8ROQqsjtnQbHKOpqQZlu31Fg==
   dependencies:
-    "@mantine/utils" "5.4.1"
+    "@mantine/utils" "5.5.4"
 
 "@mantine/notifications@^5.5.0":
   version "5.5.0"
@@ -2694,11 +2694,6 @@
     clsx "1.1.1"
     csstype "3.0.9"
 
-"@mantine/utils@5.4.1":
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.4.1.tgz#06242925933faeca619b28e74d58a63ce94567c8"
-  integrity sha512-yaZ7gv9dkr98L65EjaAniZmJpVEPzHbe5aDDljIePLgcU5hVCdUls2v31YXslTf1/CJ5yZp/L7LPYLN86EXlEA==
-
 "@mantine/utils@5.4.2":
   version "5.4.2"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.4.2.tgz#5cb41263a37c1bdc019b2a08e20ef49faeaacae2"
@@ -2713,6 +2708,11 @@
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.5.1.tgz#da8db3e3ef9ad0f6d3fa26872f22f6a860b0ea8f"
   integrity sha512-XO6SJ8I9PvmPxF62W2RxhRfdxqDVO/5AThaO+JFQyCcldRy7gwlRsHolaAolJ9l7IABTtdyvbDu7hNFb8GxPmA==
+
+"@mantine/utils@5.5.4":
+  version "5.5.4"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.5.4.tgz#4cea84cfbe16ac04b9b407b4215c66d606c702f3"
+  integrity sha512-EO0iD99wfvKC09WHpCXrqb5ewTmuYf4GeNR3xOtecNaXNbFUVxmlV6wwhsJ61YScy+7bM1lplwNvkGz5CF0v7Q==
 
 "@motionone/animation@^10.13.1":
   version "10.14.0"
@@ -2936,10 +2936,10 @@
   resolved "https://registry.yarnpkg.com/@pothos/core/-/core-3.22.5.tgz#afebfec0724b13aff25ec8db9575e65022b3b13a"
   integrity sha512-KkDyqjmGbcxJKk5n3qsO6ex6TANtRFmcAhSTPzcdF9lMU11mzZmhKksj0iIWecVnOVAkWQCqAjcKg1iMDpYfeg==
 
-"@pothos/plugin-errors@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@pothos/plugin-errors/-/plugin-errors-3.7.0.tgz#43cfcb877833e8e7daee18d0e9a1efe0beca8629"
-  integrity sha512-h7Ed9VfiylI0s5R7Q5EyHDxiVqNiukATlaDld3AwSXRn1/MAnlEkccNvFQgbIwWkYiWp6bbcuQbJTHjFjUSaMg==
+"@pothos/plugin-errors@^3.8.4":
+  version "3.8.4"
+  resolved "https://registry.yarnpkg.com/@pothos/plugin-errors/-/plugin-errors-3.8.4.tgz#1e05c0d044572ed3b0120bd84db5868a1eeae469"
+  integrity sha512-3cWoIaff6EMxp0f+GXantxY7FZsFahnqEf8nI634i0gtK2EITPvbbT8EQuix40eWHhpvFsg310tQVZEtdCSsPg==
 
 "@pothos/plugin-prisma@^3.35.4":
   version "3.35.4"

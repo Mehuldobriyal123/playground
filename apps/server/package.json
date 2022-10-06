@@ -26,7 +26,7 @@
     "@fastify/cors": "^8.1.0",
     "@novu/node": "^0.8.0",
     "@pothos/core": "^3.22.5",
-    "@pothos/plugin-errors": "^3.7.0",
+    "@pothos/plugin-errors": "^3.8.4",
     "@pothos/plugin-prisma": "^3.35.4",
     "@pothos/plugin-relay": "^3.28.4",
     "@pothos/plugin-simple-objects": "^3.5.0",
