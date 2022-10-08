@@ -2659,10 +2659,10 @@
     "@mantine/utils" "5.5.1"
     react-dropzone "14.2.2"
 
-"@mantine/hooks@^5.4.2":
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-5.4.2.tgz#0612ffa6a242ef72126fe81ee0bb3da4ba18b807"
-  integrity sha512-JnRsWYV0AWPd249qtkmTWDAbxsBf7vxf8jGUVYHCI7Wz6Ukw0PnnzjEkPCdfwuiuiVk1+wnQ/qVIKqHzu2kdVQ==
+"@mantine/hooks@^5.5.4":
+  version "5.5.4"
+  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-5.5.4.tgz#5b7f14dfffba4f59aed21ee6bccf336a438f96a3"
+  integrity sha512-4lPIcZgoMkq+GCILN8CDTVxYzsE/Gfi6ICjHhPZU1Ufmw0mftpjTQhLx3+TFMtBlqnamgBia2ZS1o2BpvTLazA==
 
 "@mantine/modals@^5.5.4":
   version "5.5.4"
