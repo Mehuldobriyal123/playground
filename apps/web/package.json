@@ -32,7 +32,7 @@
     "@nivo/line": "^0.80.0",
     "@nivo/pie": "^0.80.0",
     "@sentry/react": "^7.14.2",
-    "@sentry/tracing": "^7.14.1",
+    "@sentry/tracing": "^7.15.0",
     "@tanstack/match-sorter-utils": "^8.5.14",
     "@tanstack/react-table": "^8.5.15",
     "@tanstack/react-virtual": "^3.0.0-alpha.0",
