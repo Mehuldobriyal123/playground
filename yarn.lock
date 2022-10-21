@@ -2938,10 +2938,10 @@
   resolved "https://registry.yarnpkg.com/@pothos/plugin-relay/-/plugin-relay-3.28.4.tgz#2e854a34bc54b64f8b4d9c4f2726a7fecf735111"
   integrity sha512-knUzj7SCz0ugoLs5EwsXi+sbUcRJMhTXg/ESLMZtGAKIzQa9TIhZWOkwlG99OFXOifYXAWz2Jnb+NyYbUpbGqw==
 
-"@pothos/plugin-simple-objects@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@pothos/plugin-simple-objects/-/plugin-simple-objects-3.5.0.tgz#89fdaac0d8d1a1d9eaec07751bc991e097738658"
-  integrity sha512-nlkdGttPEAvk91HPdtG/YMiCsba+o8+0H/ajdePS1ZLsAS2MZvQXjzv8PMsWHLbuVPFTmEafsb7Qao+IFqygoA==
+"@pothos/plugin-simple-objects@^3.6.6":
+  version "3.6.6"
+  resolved "https://registry.yarnpkg.com/@pothos/plugin-simple-objects/-/plugin-simple-objects-3.6.6.tgz#7d69d9553c6aeb4f5639542b9c09262dc91763c4"
+  integrity sha512-m5pSZ+Kx8SdBrbvjVN/EktYIc/pWXhpdXcfN/h0QRO0fU7ewAm53wWe4oFRDno5eL9dK6e0+Cs9/kzlpIpxFAw==
 
 "@pothos/plugin-tracing@^0.5.4":
   version "0.5.4"
