@@ -24,7 +24,7 @@
     "@envelop/response-cache": "^3.2.0",
     "@envelop/validation-cache": "^4.7.0",
     "@fastify/cors": "^8.1.0",
-    "@novu/node": "^0.8.0",
+    "@novu/node": "^0.9.0",
     "@pothos/core": "^3.22.5",
     "@pothos/plugin-errors": "^3.8.4",
     "@pothos/plugin-prisma": "^3.35.4",

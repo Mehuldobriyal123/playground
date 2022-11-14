@@ -2883,21 +2883,21 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@novu/node@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@novu/node/-/node-0.8.0.tgz#803b7d1afb8cc247072331a8568d7f2c8f391896"
-  integrity sha512-WIcE5svf2Ui54dMSP4NVYEv0nL6bUyIYHg9FtFa6aOHnO2OFv+u8HzO1sqZluOxTis2BBEaMTSh9gSNxF8/I8w==
+"@novu/node@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@novu/node/-/node-0.9.0.tgz#a8f521c987e8e6e6e58be0949f3ab6ab46bcbcc7"
+  integrity sha512-GqHFc8wNOBWXmiiWjLrymmbtYCr25hNwws/tjBIbOdEhyCnnsWObqlnwnOZelDD5WPuwos+tZ96wMtUX63uM+Q==
   dependencies:
-    "@novu/shared" "^0.8.0"
+    "@novu/shared" "^0.9.0"
     axios "^0.26.1"
     handlebars "^4.7.7"
     lodash.get "^4.4.2"
     lodash.merge "^4.6.2"
 
-"@novu/shared@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@novu/shared/-/shared-0.8.0.tgz#b40fe14d5ce15fcb8f5ef4098e49eff43a1af6fc"
-  integrity sha512-wVcUhE/kSwViV0MsiYPDTLtEkw6u4OOxwXH+UxOqYP3gVsRKapjuyQGHh0tttS9dEWyJTBx2c2uIYhNxC4c8Mg==
+"@novu/shared@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@novu/shared/-/shared-0.9.0.tgz#4fdb9da45e947204f8787c0884cef758e110055f"
+  integrity sha512-ohx3mUaKapFCW2QfqrVQDT0ZAJHOT06jtWwIcGydx6JerY2lnu/OFwjTJrWBAw6z6HJi10pkd7Gxf9R3RRhF/g==
   dependencies:
     axios "^0.26.1"
     class-transformer "0.5.1"
