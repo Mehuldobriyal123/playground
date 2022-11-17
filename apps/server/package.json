@@ -40,7 +40,7 @@
     "graphql-helix": "^1.13.0",
     "graphql-playground-html": "^1.6.30",
     "graphql-relay": "^0.10.0",
-    "graphql-scalars": "^1.18.0",
+    "graphql-scalars": "^1.20.1",
     "jsonwebtoken": "^8.5.1",
     "uuid": "^9.0.0"
   },
