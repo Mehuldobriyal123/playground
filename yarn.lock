@@ -2920,10 +2920,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@pothos/core@^3.22.5":
-  version "3.22.5"
-  resolved "https://registry.yarnpkg.com/@pothos/core/-/core-3.22.5.tgz#afebfec0724b13aff25ec8db9575e65022b3b13a"
-  integrity sha512-KkDyqjmGbcxJKk5n3qsO6ex6TANtRFmcAhSTPzcdF9lMU11mzZmhKksj0iIWecVnOVAkWQCqAjcKg1iMDpYfeg==
+"@pothos/core@^3.22.9":
+  version "3.22.9"
+  resolved "https://registry.yarnpkg.com/@pothos/core/-/core-3.22.9.tgz#fa576dcf2ab3460d0549a3012910d3064cebd75d"
+  integrity sha512-yIgmJBL1L2JRrZTZ3d+9JzCzfpMXZV8aHy5oK5KhonO7dFruBtzbJlsgx4T4zQieKigBh8MSo9fbjCq1Z9Oklg==
 
 "@pothos/plugin-errors@^3.8.4":
   version "3.8.4"
