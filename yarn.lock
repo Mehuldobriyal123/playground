@@ -2952,10 +2952,10 @@
   resolved "https://registry.yarnpkg.com/@pothos/plugin-tracing/-/plugin-tracing-0.5.4.tgz#e3e473b76949db7266292a746e33b4d52411b1a6"
   integrity sha512-Z7yZnVFsA7T+docsEex6Hdaq0zEiEZtVItgeqHfjoXivT6RW25ZbrvYLohtjgMuxHytQOIvY9a/IyBxBzFkWVA==
 
-"@pothos/plugin-validation@^3.8.4":
-  version "3.8.4"
-  resolved "https://registry.yarnpkg.com/@pothos/plugin-validation/-/plugin-validation-3.8.4.tgz#4d580a418c55d2cfc83ea91a16bd47aa2ba35ef3"
-  integrity sha512-wsN/0IvNI3+gTss3/k9x5HMoZRPXJQzjX/ebL2BKXRhcWWgkg/8+eky+PYmkTVjVy4IpF3KTQ6d6GxmWPArYqw==
+"@pothos/plugin-validation@^3.8.7":
+  version "3.8.7"
+  resolved "https://registry.yarnpkg.com/@pothos/plugin-validation/-/plugin-validation-3.8.7.tgz#b5c46f313cc7fc96ff19e7b52b7ee6e13d69ba40"
+  integrity sha512-V+gJR6dA0U7SRtn3K2F32EwyiynTH0rQkdayl3WFQvT5cB+/nDYp2R5XYGDx5Q8s4R6xqV8NZg1N8IsFiGnIMA==
 
 "@prisma/client@^4.4.0":
   version "4.4.0"
