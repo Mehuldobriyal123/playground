@@ -51,7 +51,7 @@
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.43.0",
-    "eslint": "^8.25.0",
+    "eslint": "^8.28.0",
     "eslint-config-xo": "^0.42.0",
     "prisma": "^4.6.1",
     "ts-node": "^10.9.1",
