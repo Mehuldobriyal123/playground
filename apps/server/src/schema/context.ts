@@ -1,26 +1,25 @@
 import { PrismaClient } from '@prisma/client';
 import { FastifyRequest } from 'fastify';
-import { Novu } from '@novu/node';
 
 import prisma from '../database';
 
+import { verifyToken } from '../utils/auth';
+
 export type GraphQLContext = {
-  novu: Novu;
   prisma: PrismaClient;
-  admin: any;
-  token: string | null;
+  userId: string | undefined;
+  token: string | undefined;
 };
 
 export async function contextFactory(
   request: FastifyRequest,
-  novu: Novu,
 ): Promise<GraphQLContext> {
-  const token: string = (request.headers as any)['authorization'];
+  const token = (request.headers as any)['authorization'];
+  const userId = await verifyToken(prisma, token);
 
   return {
-    novu,
     prisma,
-    admin: '',
+    userId,
     token,
   };
 }

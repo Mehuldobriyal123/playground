@@ -9,7 +9,6 @@ import {
   shouldRenderGraphiQL,
 } from 'graphql-helix';
 import { renderPlaygroundPage } from 'graphql-playground-html';
-import { Novu } from '@novu/node';
 
 import getEnveloped from './envelop';
 import { contextFactory } from './schema/context';
@@ -18,10 +17,13 @@ dotenv.config();
 
 const app = fastify();
 
-const novu = new Novu(`${process.env.NOVU_API_KEY}`);
-
 app.register(cors, {
   origin: '*',
+  allowedHeaders: [
+    'Content-Type',
+    'Authorization',
+    'Access-Control-Allow-Origin',
+  ],
 });
 
 app.route({
@@ -58,7 +60,7 @@ app.route({
         parse,
         validate,
         execute,
-        contextFactory: () => contextFactory(req, novu),
+        contextFactory: () => contextFactory(req),
       });
 
       for (const [key, value] of Object.entries(res.getHeaders())) {
