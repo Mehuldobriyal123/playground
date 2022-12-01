@@ -1,6 +1,5 @@
 import SchemaBuilder from '@pothos/core';
 import ErrorsPlugin from '@pothos/plugin-errors';
-import { PrismaClient } from '@prisma/client';
 import PrismaPlugin from '@pothos/plugin-prisma';
 import RelayPlugin from '@pothos/plugin-relay';
 import ValidationPlugin from '@pothos/plugin-validation';
@@ -9,12 +8,12 @@ import TracingPlugin, {
   isRootField,
 } from '@pothos/plugin-tracing';
 import SimpleObjectsPlugin from '@pothos/plugin-simple-objects';
+import ScopeAuthPlugin from '@pothos/plugin-scope-auth';
 
 import type PrismaTypes from './schema/types';
 
 import { GraphQLContext } from './schema/context';
-
-const prisma = new PrismaClient({});
+import prisma from './database';
 
 type SchemaOptions = {
   PrismaTypes: PrismaTypes;
@@ -29,6 +28,9 @@ type SchemaOptions = {
       Output: any;
     };
   };
+  AuthScopes: {
+    isAuthenticated: boolean;
+  };
 };
 
 const builder = new SchemaBuilder<SchemaOptions>({
@@ -39,9 +41,10 @@ const builder = new SchemaBuilder<SchemaOptions>({
     ValidationPlugin,
     TracingPlugin,
     SimpleObjectsPlugin,
+    ScopeAuthPlugin,
   ],
   errorOptions: {
-    defaultTypes: [Error],
+    defaultTypes: [],
   },
   prisma: {
     client: prisma,
@@ -55,7 +58,7 @@ const builder = new SchemaBuilder<SchemaOptions>({
   relayOptions: {
     // These will become the defaults in the next major version
     clientMutationId: 'omit',
-    cursorType: 'String',
+    cursorType: 'ID',
   },
   validationOptions: {
     // optionally customize how errors are formatted
@@ -75,6 +78,9 @@ const builder = new SchemaBuilder<SchemaOptions>({
         );
       }),
   },
+  authScopes: async (context) => ({
+    isAuthenticated: !!context.userId,
+  }),
 });
 
 builder.queryType({});

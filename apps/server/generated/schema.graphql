@@ -1,4 +1,4 @@
-type Admin {
+type Admin implements Node {
   country: String!
   createdAt: DateTime!
   email: String!
@@ -6,30 +6,175 @@ type Admin {
   id: ID!
   lastName: String!
   phone: String!
+  postal_code: String
+  twitter: String
   updatedAt: DateTime!
+  username: String
+  website: String
+}
+
+input AdminChangePasswordInput {
+  currentPassword: String!
+  email: String!
+  newPassword: String!
+}
+
+type AdminChangePasswordPayload {
+  admin: Admin!
+  token: String!
+}
+
+input AdminDeleteInput {
+  id: ID!
+}
+
+type AdminDeletePayload {
+  admin: Admin!
+  token: String!
+}
+
+input AdminResetPasswordInput {
+  email: String!
+}
+
+type AdminResetPasswordPayload {
+  admin: Admin!
+  token: String!
+}
+
+input AdminSignInInput {
+  email: String!
+  password: String!
+}
+
+type AdminSignInPayload {
+  admin: Admin!
+  token: String!
+}
+
+input AdminSignUpInput {
+  country: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  phone: String!
+}
+
+type AdminSignUpPayload {
+  admin: Admin!
+  token: String!
+}
+
+input AdminUpdateInput {
+  country: String!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  phone: String!
+  postal_code: String
+  twitter: String
+  username: String
+  website: String
+}
+
+type AdminUpdatePayload {
+  admin: Admin!
+  token: String!
+}
+
+type BaseError implements Error {
+  message: String!
 }
 
 scalar DateTime
 
-type Error {
+interface Error {
   message: String!
 }
 
 scalar JSON
 
-"""AdminMutation"""
 type Mutation {
-  AdminSignIn(email: String!, password: String!): String!
-  AdminSignUp(email: String!, password: String!): String!
-  AdminUpdate(id: String!): String!
+  AdminChangePassword(input: AdminChangePasswordInput!): MutationAdminChangePasswordResult!
+  AdminDelete(input: AdminDeleteInput!): MutationAdminDeleteResult!
+  AdminResetPassword(input: AdminResetPasswordInput!): MutationAdminResetPasswordResult!
+  AdminSignIn(input: AdminSignInInput!): MutationAdminSignInResult!
+  AdminSignUp(input: AdminSignUpInput!): MutationAdminSignUpResult!
+  AdminUpdate(input: AdminUpdateInput!): MutationAdminUpdateResult!
+}
+
+union MutationAdminChangePasswordResult = MutationAdminChangePasswordSuccess | MutationError
+
+type MutationAdminChangePasswordSuccess {
+  data: AdminChangePasswordPayload!
+}
+
+union MutationAdminDeleteResult = MutationAdminDeleteSuccess | MutationError
+
+type MutationAdminDeleteSuccess {
+  data: AdminDeletePayload!
+}
+
+union MutationAdminResetPasswordResult = MutationAdminResetPasswordSuccess | MutationError
+
+type MutationAdminResetPasswordSuccess {
+  data: AdminResetPasswordPayload!
+}
+
+union MutationAdminSignInResult = MutationAdminSignInSuccess | MutationError
+
+type MutationAdminSignInSuccess {
+  data: AdminSignInPayload!
+}
+
+union MutationAdminSignUpResult = MutationAdminSignUpSuccess | MutationError
+
+type MutationAdminSignUpSuccess {
+  data: AdminSignUpPayload!
+}
+
+union MutationAdminUpdateResult = MutationAdminUpdateSuccess | MutationError
+
+type MutationAdminUpdateSuccess {
+  data: AdminUpdatePayload!
+}
+
+type MutationError implements Error {
+  message: String!
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  endCursor: ID
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: ID
 }
 
 type Query {
   admin(id: String!): QueryAdminResult!
+  admins(after: ID, before: ID, country: String, email: String, first: Int, firstName: String, last: Int, lastName: String, phone: String, postal_code: String, twitter: String, username: String, website: String): QueryAdminsConnection!
+  me: Admin
+  node(id: ID!): Node
+  nodes(ids: [ID!]!): [Node]!
 }
 
-union QueryAdminResult = Error | QueryAdminSuccess
+union QueryAdminResult = BaseError | QueryAdminSuccess
 
 type QueryAdminSuccess {
   data: Admin!
+}
+
+type QueryAdminsConnection {
+  edges: [QueryAdminsConnectionEdge]!
+  pageInfo: PageInfo!
+}
+
+type QueryAdminsConnectionEdge {
+  cursor: ID!
+  node: Admin!
 }

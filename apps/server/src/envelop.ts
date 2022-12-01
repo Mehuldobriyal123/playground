@@ -1,14 +1,16 @@
-import { envelop, useSchema } from '@envelop/core';
+import * as GraphQLJS from 'graphql';
+import { envelop, useEngine, useSchema } from '@envelop/core';
 import { useGraphQlJit } from '@envelop/graphql-jit';
 import { useParserCache } from '@envelop/parser-cache';
 import { useValidationCache } from '@envelop/validation-cache';
 import { useResponseCache } from '@envelop/response-cache';
 import { useDisableIntrospection } from '@envelop/disable-introspection';
 
-import schema from './schema/';
+import schema from './schema';
 
 const getEnveloped = envelop({
   plugins: [
+    useEngine(GraphQLJS),
     useSchema(schema),
     useGraphQlJit(),
     useValidationCache(),
