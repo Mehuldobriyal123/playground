@@ -1872,12 +1872,12 @@
     "@mantine/utils" "5.8.4"
     react-transition-group "4.4.2"
 
-"@mantine/spotlight@^5.8.4":
-  version "5.8.4"
-  resolved "https://registry.yarnpkg.com/@mantine/spotlight/-/spotlight-5.8.4.tgz#cd0108c2959c349ef288010b6e91be8a2292750a"
-  integrity sha512-d7BC38zs9I1WE05TivGKlBpWU8ZHlXkoY30/XLc3lOxRxrz+bsDacg4q4A1JuhOYqlTbnTsPuPW7O8wQFykUow==
+"@mantine/spotlight@^5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@mantine/spotlight/-/spotlight-5.9.0.tgz#7550aaadfc757ad50236b2204d2984b952eb76be"
+  integrity sha512-iF8K8detNxi5ElgyeAqkrg95qmOXcmTM2/yd7znxXOjTYUX2+YrMpZddU2MfKWWNFxwHgsCAJigkxq+7JLTPUA==
   dependencies:
-    "@mantine/utils" "5.8.4"
+    "@mantine/utils" "5.9.0"
 
 "@mantine/styles@5.8.4":
   version "5.8.4"
