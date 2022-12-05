@@ -2121,10 +2121,10 @@
   dependencies:
     "@prisma/generator-helper" "^4.6.1"
 
-"@pothos/plugin-relay@^3.29.0":
-  version "3.29.0"
-  resolved "https://registry.yarnpkg.com/@pothos/plugin-relay/-/plugin-relay-3.29.0.tgz#866eebca2a0ce91950e2096d6cf44615a88cd8c6"
-  integrity sha512-GKCH3WlOmO2FS7JWJQLkTZ1zG9lnSLAnfMnSopNkQgPfixpYqRUgLTxPlIPP77m09AbSVNEPh/vg7cNh42d/Cw==
+"@pothos/plugin-relay@^3.30.0":
+  version "3.30.0"
+  resolved "https://registry.yarnpkg.com/@pothos/plugin-relay/-/plugin-relay-3.30.0.tgz#3ad97a38cfe4ea06fa11e4e424a2aff96eaabc94"
+  integrity sha512-4NCeZqrMUTinN1R5F0Yfc3u6Hp94Ze2aaXIGpn+iuooIdBO0NwTnzhfuWrrtsCw5Z8vjxMZRLCbk/XnWGwsIZA==
 
 "@pothos/plugin-scope-auth@^3.16.0":
   version "3.16.0"
