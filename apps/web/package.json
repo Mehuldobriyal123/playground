@@ -79,7 +79,7 @@
     "@types/relay-runtime": "^14.1.5",
     "@types/webfontloader": "^1.6.35",
     "@types/yup": "^0.32.0",
-    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.1",
     "@typescript-eslint/parser": "^5.45.0",
     "cypress": "^11.2.0",
     "eslint": "^8.29.0",
