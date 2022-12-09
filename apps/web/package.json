@@ -44,7 +44,7 @@
     "axios": "^1.2.1",
     "babel-plugin-relay": "^14.1.0",
     "country-emoji": "^1.5.6",
-    "dayjs": "^1.11.6",
+    "dayjs": "^1.11.7",
     "faker": "^6.6.6",
     "formik": "^2.2.9",
     "framer-motion": "^7.6.18",
