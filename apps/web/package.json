@@ -47,7 +47,7 @@
     "dayjs": "^1.11.7",
     "faker": "^6.6.6",
     "formik": "^2.2.9",
-    "framer-motion": "^7.6.18",
+    "framer-motion": "^7.6.19",
     "i18next": "^22.1.4",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.0.2",
