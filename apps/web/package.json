@@ -25,7 +25,7 @@
     "@mantine/dates": "^5.9.2",
     "@mantine/dropzone": "^5.9.0",
     "@mantine/hooks": "^5.9.2",
-    "@mantine/modals": "^5.9.2",
+    "@mantine/modals": "^5.9.3",
     "@mantine/notifications": "^5.9.2",
     "@mantine/spotlight": "^5.9.2",
     "@nivo/calendar": "^0.80.0",

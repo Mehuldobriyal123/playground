@@ -1857,12 +1857,12 @@
   resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-5.9.2.tgz#803df4d4f0b77bda14141b96c0a910f3b4cec52a"
   integrity sha512-XOG0rpfVYpe9eQtYiWtAHpDdAsC7TymcR+yHvS0kgoCOEbgBQLaQOcD4qn0pWADx9dxQXD87/3/1KKn4L3OGrg==
 
-"@mantine/modals@^5.9.2":
-  version "5.9.2"
-  resolved "https://registry.yarnpkg.com/@mantine/modals/-/modals-5.9.2.tgz#d0db08b6b8f6c97297460805e75c7b1718db345f"
-  integrity sha512-P++azwhqhMG1MapqIUd0MCM5N/6rQJCVdOjXNVUYfXywvs2eabsuaDKwCC+Ug6WE+xN119agwtBv0SKui6Mg9A==
+"@mantine/modals@^5.9.3":
+  version "5.9.3"
+  resolved "https://registry.yarnpkg.com/@mantine/modals/-/modals-5.9.3.tgz#35045e217006a40d924d8aad5a5c1196a657c300"
+  integrity sha512-8dqOsjT+Y5nY205SuuAs6egCoGyswFhd4qmPJTrlddXfwdTUeN+CoP2hlr0UVPYO/9KHeETdINe8Zcf0xAdqew==
   dependencies:
-    "@mantine/utils" "5.9.2"
+    "@mantine/utils" "5.9.3"
 
 "@mantine/notifications@^5.9.2":
   version "5.9.2"
@@ -1901,6 +1901,11 @@
   version "5.9.2"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.9.2.tgz#d8e3b980de6cd5f7059b149c12d6ce50445b11ba"
   integrity sha512-dvqqbdrK/nw4stFCXRCn38Ru12RqdWv8uzbywP5dQVCyTw8pW/Cq+T7YCWpbkFcKFea9UhOrPhBygJcjc13FgA==
+
+"@mantine/utils@5.9.3":
+  version "5.9.3"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.9.3.tgz#649726ed2ff001a7fcf512f805c5ee895d7a27f2"
+  integrity sha512-03Km80wjeQX2LHYpNrJ+kWbTrLmp1fupOGzkUvuPtbhoA4C1Zd9JfGI1UuGHSYQFTwMXmzjkHS3K9PngqjTl+g==
 
 "@motionone/animation@^10.13.1":
   version "10.14.0"
