@@ -1864,12 +1864,12 @@
   dependencies:
     "@mantine/utils" "5.9.3"
 
-"@mantine/notifications@^5.9.2":
-  version "5.9.2"
-  resolved "https://registry.yarnpkg.com/@mantine/notifications/-/notifications-5.9.2.tgz#793caa17616b84e80d2e8029cb3996fde305ff71"
-  integrity sha512-w/7LLH8p6oOPqSZdLIA/Tx7MvJWnVGNW9PB//fN2sc9hbPjI3o9zrYqbvLVFjCTJv7l8olCOHx+wvQKCpIcdqw==
+"@mantine/notifications@^5.9.4":
+  version "5.9.4"
+  resolved "https://registry.yarnpkg.com/@mantine/notifications/-/notifications-5.9.4.tgz#110aead6c603d9127bc5ae24f63f584fc454daae"
+  integrity sha512-iVxaElBT4MOjPAXDQ70PoxmpVh+ENPJSvcKalwgs7nzoq2/6F2XLZfT2dajFu7GWTFM6/ACo+pPyQvnLOe4t8A==
   dependencies:
-    "@mantine/utils" "5.9.2"
+    "@mantine/utils" "5.9.4"
     react-transition-group "4.4.2"
 
 "@mantine/spotlight@^5.9.2":
@@ -1906,6 +1906,11 @@
   version "5.9.3"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.9.3.tgz#649726ed2ff001a7fcf512f805c5ee895d7a27f2"
   integrity sha512-03Km80wjeQX2LHYpNrJ+kWbTrLmp1fupOGzkUvuPtbhoA4C1Zd9JfGI1UuGHSYQFTwMXmzjkHS3K9PngqjTl+g==
+
+"@mantine/utils@5.9.4":
+  version "5.9.4"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.9.4.tgz#3d3b7646eabaffe6cb4b02083317cc8f9565d03e"
+  integrity sha512-NZAn30jjF52X+MFnkO3oaVgo2LPx3o/QxYlcuMkRBUTZALEXvQgrD0OyGDRgEXnfMdmkBP6rk3Pol6yXXEwU6w==
 
 "@motionone/animation@^10.13.1":
   version "10.14.0"
