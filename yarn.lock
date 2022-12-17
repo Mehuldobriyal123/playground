@@ -1872,12 +1872,12 @@
     "@mantine/utils" "5.9.4"
     react-transition-group "4.4.2"
 
-"@mantine/spotlight@^5.9.2":
-  version "5.9.2"
-  resolved "https://registry.yarnpkg.com/@mantine/spotlight/-/spotlight-5.9.2.tgz#b8610bb507acc8788cfd5597de151a2d70912f6c"
-  integrity sha512-0s16rNJ+D6dbHhvKpUC5P09kVleJthNB0MTiW7ePrEMz0RYr+/bt3CmmfWTqxmJreD1Kqo40OoWygJ0m85Npuw==
+"@mantine/spotlight@^5.9.5":
+  version "5.9.5"
+  resolved "https://registry.yarnpkg.com/@mantine/spotlight/-/spotlight-5.9.5.tgz#e28962b5c1c551cbcce34692490be5760513233f"
+  integrity sha512-JFk9UKaagwMJjljySYpWq2QR3yHrFcxgWltY2ebjtFsPIKllzXxHAy/+VetytyNl9LtKnF8q0A93OctlGamq4A==
   dependencies:
-    "@mantine/utils" "5.9.2"
+    "@mantine/utils" "5.9.5"
 
 "@mantine/styles@5.8.4":
   version "5.8.4"
@@ -1897,15 +1897,15 @@
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.9.0.tgz#f21ba4c518a6561bea079c7c909298f35f492a99"
   integrity sha512-UU5kO1VcsntrKvznJMjZ1S/ZM6arAXFkBnBqAKfCPOPJJIcwUWOfQP8u1sxp8ounAHThp9GtkpuzzGOQy1rcPA==
 
-"@mantine/utils@5.9.2":
-  version "5.9.2"
-  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.9.2.tgz#d8e3b980de6cd5f7059b149c12d6ce50445b11ba"
-  integrity sha512-dvqqbdrK/nw4stFCXRCn38Ru12RqdWv8uzbywP5dQVCyTw8pW/Cq+T7YCWpbkFcKFea9UhOrPhBygJcjc13FgA==
-
 "@mantine/utils@5.9.4":
   version "5.9.4"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.9.4.tgz#3d3b7646eabaffe6cb4b02083317cc8f9565d03e"
   integrity sha512-NZAn30jjF52X+MFnkO3oaVgo2LPx3o/QxYlcuMkRBUTZALEXvQgrD0OyGDRgEXnfMdmkBP6rk3Pol6yXXEwU6w==
+
+"@mantine/utils@5.9.5":
+  version "5.9.5"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.9.5.tgz#9b56c899e479c90abecc096eb8543b93bdc52938"
+  integrity sha512-OtMOvXMyqpZ+Tz25DYRwRkvERvmF4L0RJiq+JnXk+1yKDvG+JZQuMMLnt0nZ81T6q7uzDSA29cJ45syHL2BXmQ==
 
 "@motionone/animation@^10.15.1":
   version "10.15.1"
