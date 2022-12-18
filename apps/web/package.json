@@ -27,7 +27,7 @@
     "@mantine/hooks": "^5.9.2",
     "@mantine/modals": "^5.9.4",
     "@mantine/notifications": "^5.9.4",
-    "@mantine/spotlight": "^5.9.2",
+    "@mantine/spotlight": "^5.9.5",
     "@nivo/calendar": "^0.80.0",
     "@nivo/line": "^0.80.0",
     "@nivo/pie": "^0.80.0",
