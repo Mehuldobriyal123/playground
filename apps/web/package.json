@@ -33,7 +33,7 @@
     "@nivo/pie": "^0.80.0",
     "@sentry/react": "^7.24.2",
     "@sentry/tracing": "^7.24.2",
-    "@tanstack/match-sorter-utils": "^8.7.0",
+    "@tanstack/match-sorter-utils": "^8.7.2",
     "@tanstack/react-table": "^8.7.4",
     "@tanstack/react-virtual": "^3.0.0-alpha.0",
     "@testing-library/jest-dom": "^5.16.5",
