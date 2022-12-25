@@ -67,7 +67,6 @@ const AdminSignUp = graphql`
   mutation SignUpMutation($input: AdminSignUpInput!) {
     AdminSignUp(input: $input) {
       token
-      error
       admin {
         id
         firstName
