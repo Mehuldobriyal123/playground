@@ -1,58 +1,100 @@
 import * as React from 'react';
-import { Container, Stack, TextInput, SimpleGrid } from '@mantine/core';
-import { Search } from 'tabler-icons-react';
+import { Container, Stack, Tabs, TextInput, SimpleGrid } from '@mantine/core';
+import { DatePicker } from '@mantine/dates';
+import { Search, IdBadge } from 'tabler-icons-react';
+import { openModal } from '@mantine/modals';
+import { usePreloadedQuery, PreloadedQuery } from 'react-relay';
 
 import Header from 'src/components/Header/Header';
-import CheckoutItem from 'src/components/Checkout/CheckoutItem/CheckoutItem';
+import NotAuthenticated from 'src/components/Error/NotAuthenticated/NotAuthenticated';
 
-const Checkout = () => (
-  <Container>
-    <Stack spacing={20}>
-      <Header
-        title="Checkout"
-        text="View and manage your checkout."
-        showButton={false}
-      />
+import NewProductModal from 'src/components/Modal/NewProductModal/NewProductModal';
 
-      <TextInput
-        placeholder="Search supplier by name, company, address"
-        icon={<Search size={16} />}
-        size="md"
-      />
+import { MeQuery } from 'src/queries/';
+import { MeQuery as MeQueryType } from 'src/queries/__generated__/MeQuery.graphql';
 
-      <SimpleGrid
-        cols={4}
-        spacing="lg"
-        breakpoints={[
-          { maxWidth: 980, cols: 3, spacing: 'md' },
-          { maxWidth: 755, cols: 2, spacing: 'sm' },
-          { maxWidth: 600, cols: 1, spacing: 'sm' },
-        ]}
-      >
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-        <CheckoutItem />
-      </SimpleGrid>
-    </Stack>
-  </Container>
-);
+interface Props {
+  queryReference: PreloadedQuery<MeQueryType>;
+}
+
+const Checkout = ({ queryReference }: Props) => {
+  const data = usePreloadedQuery<MeQueryType>(MeQuery, queryReference);
+
+  if (!data.me) {
+    return <NotAuthenticated />;
+  }
+
+  return (
+    <Container>
+      <Stack spacing={20}>
+        <Header
+          title="Checkout"
+          text="View and manage your Checkout."
+          showButton={true}
+          buttonText="New product"
+          onClick={() => {
+            openModal({
+              children: <NewProductModal />,
+              title: 'Create product',
+            });
+          }}
+        />
+
+        <Tabs
+          defaultValue="general"
+          styles={(theme) => ({
+            tabLabel: {
+              fontSize: theme.fontSizes.md,
+              fontWeight: 600,
+              letterSpacing: '-.016em',
+            },
+          })}
+        >
+          <Tabs.List>
+            <Tabs.Tab value="general">General</Tabs.Tab>
+          </Tabs.List>
+
+          <Tabs.Panel value="general">
+            <Container p={0} m={0} pt={20} pb={20}>
+              <Stack spacing={30}>
+                <Stack spacing={20}>
+                  <TextInput
+                    variant="filled"
+                    placeholder="Search supplier by name, company, address"
+                    label="Search"
+                    icon={<Search size={16} />}
+                    size="md"
+                  />
+
+                  <SimpleGrid cols={3}>
+                    <TextInput
+                      variant="filled"
+                      placeholder="Your supplier code"
+                      label="Code"
+                      icon={<IdBadge size={16} />}
+                      size="md"
+                    />
+                    <DatePicker
+                      variant="filled"
+                      size="md"
+                      placeholder="Pick your date"
+                      label="Created at"
+                    />
+                    <DatePicker
+                      variant="filled"
+                      size="md"
+                      placeholder="Pick your date"
+                      label="Updated at"
+                    />
+                  </SimpleGrid>
+                </Stack>
+              </Stack>
+            </Container>
+          </Tabs.Panel>
+        </Tabs>
+      </Stack>
+    </Container>
+  );
+};
 
 export default Checkout;

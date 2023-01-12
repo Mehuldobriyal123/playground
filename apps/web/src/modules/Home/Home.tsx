@@ -1,10 +1,15 @@
 import * as React from 'react';
-import { AppShell } from '@mantine/core';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { AppShell, Box, MediaQuery, Center, Loader } from '@mantine/core';
+import { useDisclosure, useMediaQuery } from '@mantine/hooks';
+import { useQueryLoader } from 'react-relay';
+import { Routes, Route } from 'react-router-dom';
 
 import NavBar from 'src/components/AppShell/NavBar/NavBar';
+import Drawer from 'src/components/AppShell/Drawer/Drawer';
 import Header from 'src/components/AppShell/Header/Header';
-import Aside from 'src/components/AppShell/Aside/Aside';
+
+import ErrorBoundary from 'src/components/Error/ErrorBoundary/ErrorBoundary';
+import ErrorFallback from 'src/components/Error/ErrorFallback/ErrorFallback';
 
 import Checkout from 'src/modules/Checkout/Checkout';
 import Customers from 'src/modules/Customers/Customers';
@@ -15,31 +20,99 @@ import Sellers from 'src/modules/Sellers/Sellers';
 import Setup from 'src/modules/Setup/Setup';
 import Suppliers from 'src/modules/Suppliers/Suppliers';
 
-const Home = () => {
-  const [opened, setOpened] = React.useState<boolean>(false);
-  const location = useLocation();
+import { MeQuery } from 'src/queries/';
+import type { MeQuery as MeQueryType } from 'src/queries/__generated__/MeQuery.graphql';
 
-  const isCheckout = location.pathname === '/checkout';
+const Home = () => {
+  const matches = useMediaQuery('(max-width: 800px)');
+  const [opened, handlers] = useDisclosure(false);
+  const [queryReference, loadQuery, disposeQuery] =
+    useQueryLoader<MeQueryType>(MeQuery);
+
+  React.useEffect(() => {
+    loadQuery({}, { fetchPolicy: 'store-and-network' });
+
+    return () => {
+      disposeQuery();
+    };
+  }, [loadQuery, disposeQuery]);
+
+  const onReset = () => {
+    loadQuery({}, { fetchPolicy: 'store-and-network' });
+  };
 
   return (
     <AppShell
-      navbarOffsetBreakpoint="sm"
-      asideOffsetBreakpoint="sm"
-      fixed
-      aside={isCheckout ? <Aside /> : undefined}
-      navbar={<NavBar opened={!opened} />}
-      header={<Header opened={opened} setOpened={setOpened} />}
+      padding="md"
+      styles={(theme) => ({
+        body: { minHeight: '100vh' },
+        main: {
+          padding: 0,
+          backgroundColor:
+            theme.colorScheme === 'dark' ? theme.colors.dark[6] : '#FFFFFF',
+        },
+      })}
+      navbar={
+        <>
+          <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+            <NavBar opened={opened} handleClose={handlers.close} />
+          </MediaQuery>
+          <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+            <Drawer opened={opened} handleClose={handlers.close} />
+          </MediaQuery>
+        </>
+      }
     >
-      <Routes>
-        <Route path="*" element={<Dashboard />} />
-        <Route path="checkout" element={<Checkout />} />
-        <Route path="customers" element={<Customers />} />
-        <Route path="products" element={<Products />} />
-        <Route path="sales" element={<Sales />} />
-        <Route path="sellers" element={<Sellers />} />
-        <Route path="setup" element={<Setup />} />
-        <Route path="suppliers" element={<Suppliers />} />
-      </Routes>
+      {matches ? <Header handlers={handlers} /> : null}
+
+      <Box py="xl" px="md">
+        {queryReference && (
+          <ErrorBoundary fallback={ErrorFallback} onReset={onReset}>
+            <React.Suspense
+              fallback={
+                <Center>
+                  <Loader variant="dots" />
+                </Center>
+              }
+            >
+              <Routes>
+                <Route
+                  path="*"
+                  element={<Dashboard queryReference={queryReference} />}
+                />
+                <Route
+                  path="checkout"
+                  element={<Checkout queryReference={queryReference} />}
+                />
+                <Route
+                  path="customers"
+                  element={<Customers queryReference={queryReference} />}
+                />
+                <Route
+                  path="products"
+                  element={<Products queryReference={queryReference} />}
+                />
+                <Route
+                  path="sales"
+                  element={<Sales queryReference={queryReference} />}
+                />
+                <Route
+                  path="sellers"
+                  element={<Sellers queryReference={queryReference} />}
+                />
+                <Route
+                  path="setup"
+                  element={<Setup queryReference={queryReference} />}
+                />
+                <Route
+                  path="suppliers"
+                  element={<Suppliers queryReference={queryReference} />}
+                />
+              </Routes>
+            </React.Suspense>
+          </ErrorBoundary>
+        )}
+      </Box>
     </AppShell>
   );
 };

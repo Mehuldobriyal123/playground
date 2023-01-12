@@ -1,49 +1,37 @@
 import * as React from 'react';
-import {
-  Header as MantineHeader,
-  MediaQuery,
-  Burger,
-  useMantineTheme,
-  Title,
-  Group,
-  createStyles,
-} from '@mantine/core';
+import { Box, Group, Container, ActionIcon, MediaQuery } from '@mantine/core';
+import { Menu2 } from 'tabler-icons-react';
 
 interface Props {
-  opened: boolean;
-  setOpened: React.Dispatch<React.SetStateAction<boolean>>;
+  handlers: {
+    readonly open: () => void;
+    readonly close: () => void;
+    readonly toggle: () => void;
+  };
 }
 
-const useStyles = createStyles((theme) => ({
-  title: {
-    letterSpacing: '-.040em',
-    textIndent: '-0.020em',
-  },
-}));
-
-const Header = ({ opened, setOpened }: Props) => {
-  const { classes } = useStyles();
-  const theme = useMantineTheme();
-
-  return (
-    <MantineHeader height={70} p="md">
-      <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+const Header = ({ handlers }: Props) => (
+  <Box
+    component="header"
+    sx={(theme) => ({
+      padding: `15px 10px`,
+      borderBottom: `1px solid ${
+        theme.colorScheme === 'dark'
+          ? theme.colors.dark[3]
+          : theme.colors.gray[2]
+      }`,
+    })}
+  >
+    <Container>
+      <Group spacing="lg" noWrap>
         <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
-          <Burger
-            opened={opened}
-            onClick={() => setOpened((o) => !o)}
-            size="sm"
-            color={theme.colors.gray[6]}
-            mr="xl"
-          />
+          <ActionIcon radius="xl" size={40} onClick={handlers.open}>
+            <Menu2 />
+          </ActionIcon>
         </MediaQuery>
-
-        <Group position="apart">
-          <Title className={classes.title}>amaaru</Title>
-        </Group>
-      </div>
-    </MantineHeader>
-  );
-};
+      </Group>
+    </Container>
+  </Box>
+);
 
 export default Header;

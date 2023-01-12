@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<11bdf7d7ab4ccd9e40f1fd4bce067f42>>
+ * @generated SignedSource<<fb45bc35a88db08bf426234922afb36a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -18,137 +18,195 @@ export type SignInMutation$variables = {
 };
 export type SignInMutation$data = {
   readonly AdminSignIn: {
-    readonly admin: {
-      readonly email: string;
-      readonly firstName: string;
-      readonly id: string;
-      readonly lastName: string;
-      readonly phone: string;
-    } | null;
-    readonly error: string | null;
-    readonly token: string | null;
-  } | null;
+    readonly data?: {
+      readonly admin: {
+        readonly country: string;
+        readonly email: string;
+        readonly firstName: string;
+        readonly id: string;
+        readonly lastName: string;
+        readonly phone: string;
+      };
+      readonly token: string;
+    };
+    readonly message?: string;
+  };
 };
 export type SignInMutation = {
   response: SignInMutation$data;
   variables: SignInMutation$variables;
 };
 
-const node: ConcreteRequest = (function () {
-  var v0 = [
+const node: ConcreteRequest = (function(){
+var v0 = [
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "input"
+  }
+],
+v1 = [
+  {
+    "kind": "Variable",
+    "name": "input",
+    "variableName": "input"
+  }
+],
+v2 = {
+  "kind": "InlineFragment",
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "AdminSignInPayload",
+      "kind": "LinkedField",
+      "name": "data",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "Admin",
+          "kind": "LinkedField",
+          "name": "admin",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "id",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "firstName",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "lastName",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "email",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "country",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "phone",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "token",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    }
+  ],
+  "type": "MutationAdminSignInSuccess",
+  "abstractKey": null
+},
+v3 = {
+  "kind": "InlineFragment",
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "message",
+      "storageKey": null
+    }
+  ],
+  "type": "Error",
+  "abstractKey": "__isError"
+};
+return {
+  "fragment": {
+    "argumentDefinitions": (v0/*: any*/),
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "SignInMutation",
+    "selections": [
       {
-        defaultValue: null,
-        kind: 'LocalArgument',
-        name: 'input',
-      },
+        "alias": null,
+        "args": (v1/*: any*/),
+        "concreteType": null,
+        "kind": "LinkedField",
+        "name": "AdminSignIn",
+        "plural": false,
+        "selections": [
+          (v2/*: any*/),
+          (v3/*: any*/)
+        ],
+        "storageKey": null
+      }
     ],
-    v1 = [
+    "type": "Mutation",
+    "abstractKey": null
+  },
+  "kind": "Request",
+  "operation": {
+    "argumentDefinitions": (v0/*: any*/),
+    "kind": "Operation",
+    "name": "SignInMutation",
+    "selections": [
       {
-        alias: null,
-        args: [
+        "alias": null,
+        "args": (v1/*: any*/),
+        "concreteType": null,
+        "kind": "LinkedField",
+        "name": "AdminSignIn",
+        "plural": false,
+        "selections": [
           {
-            kind: 'Variable',
-            name: 'input',
-            variableName: 'input',
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "__typename",
+            "storageKey": null
           },
+          (v2/*: any*/),
+          (v3/*: any*/)
         ],
-        concreteType: 'AdminMutationPayload',
-        kind: 'LinkedField',
-        name: 'AdminSignIn',
-        plural: false,
-        selections: [
-          {
-            alias: null,
-            args: null,
-            kind: 'ScalarField',
-            name: 'token',
-            storageKey: null,
-          },
-          {
-            alias: null,
-            args: null,
-            kind: 'ScalarField',
-            name: 'error',
-            storageKey: null,
-          },
-          {
-            alias: null,
-            args: null,
-            concreteType: 'Admin',
-            kind: 'LinkedField',
-            name: 'admin',
-            plural: false,
-            selections: [
-              {
-                alias: null,
-                args: null,
-                kind: 'ScalarField',
-                name: 'id',
-                storageKey: null,
-              },
-              {
-                alias: null,
-                args: null,
-                kind: 'ScalarField',
-                name: 'firstName',
-                storageKey: null,
-              },
-              {
-                alias: null,
-                args: null,
-                kind: 'ScalarField',
-                name: 'lastName',
-                storageKey: null,
-              },
-              {
-                alias: null,
-                args: null,
-                kind: 'ScalarField',
-                name: 'email',
-                storageKey: null,
-              },
-              {
-                alias: null,
-                args: null,
-                kind: 'ScalarField',
-                name: 'phone',
-                storageKey: null,
-              },
-            ],
-            storageKey: null,
-          },
-        ],
-        storageKey: null,
-      },
-    ];
-  return {
-    fragment: {
-      argumentDefinitions: v0 /*: any*/,
-      kind: 'Fragment',
-      metadata: null,
-      name: 'SignInMutation',
-      selections: v1 /*: any*/,
-      type: 'Mutation',
-      abstractKey: null,
-    },
-    kind: 'Request',
-    operation: {
-      argumentDefinitions: v0 /*: any*/,
-      kind: 'Operation',
-      name: 'SignInMutation',
-      selections: v1 /*: any*/,
-    },
-    params: {
-      cacheID: '160cbc85da18d062d8dfc9eb377fd42a',
-      id: null,
-      metadata: {},
-      name: 'SignInMutation',
-      operationKind: 'mutation',
-      text: 'mutation SignInMutation(\n  $input: AdminSignInInput!\n) {\n  AdminSignIn(input: $input) {\n    token\n    error\n    admin {\n      id\n      firstName\n      lastName\n      email\n      phone\n    }\n  }\n}\n',
-    },
-  };
+        "storageKey": null
+      }
+    ]
+  },
+  "params": {
+    "cacheID": "34a73f3650f8c7e7909a2db7442b3313",
+    "id": null,
+    "metadata": {},
+    "name": "SignInMutation",
+    "operationKind": "mutation",
+    "text": "mutation SignInMutation(\n  $input: AdminSignInInput!\n) {\n  AdminSignIn(input: $input) {\n    __typename\n    ... on MutationAdminSignInSuccess {\n      data {\n        admin {\n          id\n          firstName\n          lastName\n          email\n          country\n          phone\n        }\n        token\n      }\n    }\n    ... on Error {\n      __isError: __typename\n      message\n    }\n  }\n}\n"
+  }
+};
 })();
 
-(node as any).hash = '0d8925e6f811d7e3152e03f3c6608483';
+(node as any).hash = "a141825d79a2c3e4a0b83d4a605b5cab";
 
 export default node;
