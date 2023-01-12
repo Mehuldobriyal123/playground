@@ -14,15 +14,17 @@ import {
   createStyles,
 } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
-import { Formik, Form, FormikProps } from 'formik';
+import { Link, useNavigate } from 'react-router-dom';
+import { Formik, Form, FormikProps, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
-import { AlertTriangle } from 'tabler-icons-react';
 import { useMutation } from 'react-relay';
 import graphql from 'babel-plugin-relay/macro';
+import { AlertTriangle, FaceIdError, MoodHappy } from 'tabler-icons-react';
 import { countries, flag, name } from 'country-emoji';
 
 import { SignUpMutation } from './__generated__/SignUpMutation.graphql';
+
+import useStore from 'src/store/';
 
 interface SignUpFormValues {
   firstName: string;
@@ -32,6 +34,15 @@ interface SignUpFormValues {
   email: string;
   password: string;
 }
+
+const initialValues: SignUpFormValues = {
+  firstName: '',
+  lastName: '',
+  phone: '',
+  country: '',
+  email: '',
+  password: '',
+};
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string().required('First name is required'),
@@ -66,32 +77,31 @@ const useStyles = createStyles((theme) => ({
 const AdminSignUp = graphql`
   mutation SignUpMutation($input: AdminSignUpInput!) {
     AdminSignUp(input: $input) {
-      token
-      admin {
-        id
-        firstName
-        lastName
-        email
-        phone
-        country
+      ... on MutationAdminSignUpSuccess {
+        data {
+          admin {
+            id
+            firstName
+            lastName
+            email
+            country
+            phone
+          }
+          token
+        }
+      }
+      ... on Error {
+        message
       }
     }
   }
 `;
 
 const SignUp = () => {
-  const [commitMutation, isPending] = useMutation<SignUpMutation>(AdminSignUp);
-
+  const [commitMutation, isInFlight] = useMutation<SignUpMutation>(AdminSignUp);
+  const onUpdateToken = useStore((state) => state.onUpdateToken);
   const { classes } = useStyles();
-
-  const initialValues: SignUpFormValues = {
-    firstName: '',
-    lastName: '',
-    phone: '',
-    country: '',
-    email: '',
-    password: '',
-  };
+  const navigate = useNavigate();
 
   const countriesArray = Object.keys(countries);
 
@@ -119,7 +129,10 @@ const SignUp = () => {
         validationSchema={validationSchema}
         validateOnBlur={false}
         validateOnMount={true}
-        onSubmit={(values: SignUpFormValues) => {
+        onSubmit={(
+          values: SignUpFormValues,
+          actions: FormikHelpers<SignUpFormValues>,
+        ) => {
           commitMutation({
             variables: {
               input: {
@@ -131,19 +144,44 @@ const SignUp = () => {
                 password: values.password,
               },
             },
-            onCompleted(response, errors) {
-              console.log('response: ', response);
-              showNotification({
-                title: 'Sign up succesfully!',
-                message: 'You are now signed up',
-              });
+            onCompleted({ AdminSignUp }, errors) {
+              // We should check if there was an error and display it.
+              if (AdminSignUp.message) {
+                showNotification({
+                  title: 'Something went wrong. Please try again.',
+                  message:
+                    'If the problem persists, come back later and try again. If you wish, feel free to contact our customer support.',
+                  color: 'red',
+                  icon: <FaceIdError />,
+                });
+              }
+
+              // We should redirect to the dashboard.
+              if (AdminSignUp.data) {
+                onUpdateToken(
+                  AdminSignUp.data.token,
+                  AdminSignUp.data.admin.id,
+                );
+                showNotification({
+                  title: 'Sign up successful',
+                  message: 'You created an account successfully',
+                  color: 'green',
+                  icon: <MoodHappy />,
+                });
+                navigate('/bets');
+              }
+
+              actions.setSubmitting(false);
             },
             onError(error) {
-              console.log('error: ', error);
               showNotification({
-                title: 'Something went wrong!',
-                message: error.message,
+                title: 'Something went wrong. Please try again.',
+                message:
+                  'If the problem persists, come back later and try again. If you wish, feel free to contact our customer support.',
+                color: 'red',
+                icon: <FaceIdError />,
               });
+              actions.setSubmitting(false);
             },
           });
         }}
@@ -152,6 +190,7 @@ const SignUp = () => {
           <Form onSubmit={props.handleSubmit}>
             <Paper withBorder shadow="md" p={30} mt={30}>
               <TextInput
+                variant="filled"
                 size="md"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
@@ -176,6 +215,7 @@ const SignUp = () => {
               />
 
               <TextInput
+                variant="filled"
                 size="md"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
@@ -201,6 +241,7 @@ const SignUp = () => {
               />
 
               <Select
+                variant="filled"
                 size="md"
                 onChange={(value: string) => {
                   props.setFieldValue('country', value);
@@ -229,6 +270,7 @@ const SignUp = () => {
               />
 
               <TextInput
+                variant="filled"
                 size="md"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
@@ -254,6 +296,7 @@ const SignUp = () => {
               />
 
               <TextInput
+                variant="filled"
                 size="md"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
@@ -279,6 +322,7 @@ const SignUp = () => {
               />
 
               <PasswordInput
+                variant="filled"
                 size="md"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
@@ -315,7 +359,7 @@ const SignUp = () => {
                 size="md"
                 fullWidth
                 mt="md"
-                loading={isPending}
+                loading={isInFlight}
                 disabled={props.isValid === false}
               >
                 Sign up

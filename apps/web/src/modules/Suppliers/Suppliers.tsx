@@ -1,84 +1,41 @@
 import * as React from 'react';
-import {
-  Container,
-  Stack,
-  Tabs,
-  TextInput,
-  SimpleGrid,
-  Checkbox,
-} from '@mantine/core';
+import { Container, Stack, Tabs, TextInput, SimpleGrid } from '@mantine/core';
 import { DatePicker } from '@mantine/dates';
 import { Search, IdBadge } from 'tabler-icons-react';
-import { ColumnDef } from '@tanstack/react-table';
 import { openModal } from '@mantine/modals';
-
-import { makeData, Person } from 'src/utils/makeData';
+import { usePreloadedQuery, PreloadedQuery } from 'react-relay';
 
 import Header from 'src/components/Header/Header';
-import Table from 'src/components/Table/Table';
+import NotAuthenticated from 'src/components/Error/NotAuthenticated/NotAuthenticated';
 
-import NewSupplierModal from 'src/components/Modal/NewSupplierModal/NewSupplierModal';
+import NewProductModal from 'src/components/Modal/NewProductModal/NewProductModal';
 
-const Suppliers = () => {
-  const [data] = React.useState(() => makeData(1000));
+import { MeQuery } from 'src/queries/';
+import { MeQuery as MeQueryType } from 'src/queries/__generated__/MeQuery.graphql';
 
-  const columns = React.useMemo<ColumnDef<Person>[]>(
-    () => [
-      {
-        id: 'select',
-        header: ({ table }) => (
-          <Checkbox
-            {...{
-              checked: table.getIsAllPageRowsSelected(),
-              indeterminate: table.getIsSomePageRowsSelected(),
-              onChange: table.getToggleAllPageRowsSelectedHandler(),
-            }}
-          />
-        ),
-        cell: ({ row }) => (
-          <Checkbox
-            {...{
-              checked: row.getIsSelected(),
-              indeterminate: row.getIsSomeSelected(),
-              onChange: row.getToggleSelectedHandler(),
-            }}
-          />
-        ),
-      },
-      {
-        id: 'firstName',
-        header: () => <span>First name</span>,
-        accessorKey: 'firstName',
-        cell: (info) => info.getValue(),
-      },
-      {
-        id: 'lastName',
-        header: () => <span>Last name</span>,
-        accessorKey: 'lastName',
-        cell: (info) => info.getValue(),
-      },
-      {
-        id: 'email',
-        header: () => <span>Email</span>,
-        accessorKey: 'email',
-        cell: (info) => info.getValue(),
-      },
-    ],
-    [],
-  );
+interface Props {
+  queryReference: PreloadedQuery<MeQueryType>;
+}
+
+const Suppliers = ({ queryReference }: Props) => {
+  const data = usePreloadedQuery<MeQueryType>(MeQuery, queryReference);
+
+  if (!data.me) {
+    return <NotAuthenticated />;
+  }
 
   return (
     <Container>
       <Stack spacing={20}>
         <Header
           title="Suppliers"
-          text="View and manage your suppliers."
+          text="View and manage your Suppliers."
           showButton={true}
-          buttonText="New supplier"
+          buttonText="New product"
           onClick={() => {
             openModal({
-              children: <NewSupplierModal />,
-              title: 'Create supplier',
+              children: <NewProductModal />,
+              title: 'Create product',
             });
           }}
         />
@@ -102,6 +59,7 @@ const Suppliers = () => {
               <Stack spacing={30}>
                 <Stack spacing={20}>
                   <TextInput
+                    variant="filled"
                     placeholder="Search supplier by name, company, address"
                     label="Search"
                     icon={<Search size={16} />}
@@ -110,25 +68,26 @@ const Suppliers = () => {
 
                   <SimpleGrid cols={3}>
                     <TextInput
+                      variant="filled"
                       placeholder="Your supplier code"
                       label="Code"
                       icon={<IdBadge size={16} />}
                       size="md"
                     />
                     <DatePicker
+                      variant="filled"
                       size="md"
                       placeholder="Pick your date"
                       label="Created at"
                     />
                     <DatePicker
+                      variant="filled"
                       size="md"
                       placeholder="Pick your date"
                       label="Updated at"
                     />
                   </SimpleGrid>
                 </Stack>
-
-                <Table data={data} columns={columns} />
               </Stack>
             </Container>
           </Tabs.Panel>

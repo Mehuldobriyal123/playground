@@ -13,14 +13,16 @@ import {
   createStyles,
 } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, FormikProps, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
-import { AlertTriangle } from 'tabler-icons-react';
 import { useMutation } from 'react-relay';
 import graphql from 'babel-plugin-relay/macro';
+import { AlertTriangle, FaceIdError, MoodHappy } from 'tabler-icons-react';
 
 import { SignInMutation } from './__generated__/SignInMutation.graphql';
+
+import useStore from 'src/store/';
 
 interface SignInFormValues {
   email: string;
@@ -61,22 +63,31 @@ const useStyles = createStyles((theme) => ({
 const AdminSignIn = graphql`
   mutation SignInMutation($input: AdminSignInInput!) {
     AdminSignIn(input: $input) {
-      token
-      admin {
-        id
-        firstName
-        lastName
-        email
-        phone
+      ... on MutationAdminSignInSuccess {
+        data {
+          admin {
+            id
+            firstName
+            lastName
+            email
+            country
+            phone
+          }
+          token
+        }
+      }
+      ... on Error {
+        message
       }
     }
   }
 `;
 
 const SignIn = () => {
-  const [commitMutation, isPending] = useMutation<SignInMutation>(AdminSignIn);
-
+  const [commitMutation, isInFlight] = useMutation<SignInMutation>(AdminSignIn);
+  const onUpdateToken = useStore((state) => state.onUpdateToken);
   const { classes } = useStyles();
+  const navigate = useNavigate();
 
   return (
     <Container size={420} my={40}>
@@ -106,18 +117,42 @@ const SignIn = () => {
                 password: values.password,
               },
             },
-            onCompleted(response, errors) {
-              console.log('response: ', response);
-              showNotification({
-                title: 'Log in succesfully!',
-                message: 'You are now logged in',
-              });
+            onCompleted({ AdminSignIn }, errors) {
+              // We should check if there was an error and display it.
+              if (AdminSignIn.message) {
+                showNotification({
+                  title: 'Something went wrong. Please try again.',
+                  message:
+                    'If the problem persists, come back later and try again. If you wish, feel free to contact our customer support.',
+                  color: 'red',
+                  icon: <FaceIdError />,
+                });
+              }
+
+              // We should redirect to the dashboard.
+              if (AdminSignIn.data) {
+                onUpdateToken(
+                  AdminSignIn.data.token,
+                  AdminSignIn.data.admin.id,
+                );
+                showNotification({
+                  title: 'Sign in successful',
+                  message: 'You will be redirected to the dashboard',
+                  color: 'green',
+                  icon: <MoodHappy />,
+                });
+                navigate('/bets');
+              }
+
+              actions.setSubmitting(false);
             },
             onError(error) {
-              console.log('error.message: ', error.message);
               showNotification({
-                title: 'Something went wrong!',
-                message: error.message,
+                title: 'Something went wrong. Please try again.',
+                message:
+                  'If the problem persists, come back later and try again. If you wish, feel free to contact our customer support.',
+                color: 'red',
+                icon: <FaceIdError />,
               });
               actions.setSubmitting(false);
             },
@@ -128,6 +163,7 @@ const SignIn = () => {
           <Form onSubmit={props.handleSubmit}>
             <Paper withBorder shadow="md" p={30} mt={30}>
               <TextInput
+                variant="filled"
                 size="md"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
@@ -152,6 +188,7 @@ const SignIn = () => {
               />
 
               <PasswordInput
+                variant="filled"
                 size="md"
                 onChange={props.handleChange}
                 onBlur={props.handleBlur}
@@ -188,7 +225,7 @@ const SignIn = () => {
                 size="md"
                 fullWidth
                 mt="md"
-                loading={isPending}
+                loading={isInFlight}
                 disabled={props.isValid === false}
               >
                 Sign in
