@@ -58,7 +58,7 @@
     "web:relay": "turbo run relay --scope=web"
   },
   "devDependencies": {
-    "prettier": "^2.8.1",
+    "prettier": "^2.8.3",
     "turbo": "latest"
   }
 }
