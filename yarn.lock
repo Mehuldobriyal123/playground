@@ -1844,12 +1844,12 @@
   dependencies:
     "@mantine/utils" "5.10.1"
 
-"@mantine/dropzone@^5.10.0":
-  version "5.10.0"
-  resolved "https://registry.yarnpkg.com/@mantine/dropzone/-/dropzone-5.10.0.tgz#bf022d5f24e90e29812e4f3a6304787b089980d5"
-  integrity sha512-SpDi9FEFCtNZnxfGojvrUg3zwoe4Ueyip0dIJ6D70/q6M7WMStuLhDVVLUgrhAr0REArUa3HWPx9AfdZ/TAOEg==
+"@mantine/dropzone@^5.10.1":
+  version "5.10.1"
+  resolved "https://registry.yarnpkg.com/@mantine/dropzone/-/dropzone-5.10.1.tgz#a85cede80cc0b2c737e394f4f29b6d4772e53456"
+  integrity sha512-uFB/+5smCiM95Sv+z8fvHUglinE9EGjZZNh8DsO3WKJoxaZAFZmL62wqQ75AlqLBE+WN9zrgbFiL93+eiFImog==
   dependencies:
-    "@mantine/utils" "5.10.0"
+    "@mantine/utils" "5.10.1"
     react-dropzone "14.2.3"
 
 "@mantine/hooks@^5.10.0":
