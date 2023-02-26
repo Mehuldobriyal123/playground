@@ -27,7 +27,7 @@ jobs:
           CI: true
 
       - name: Format
-        run: yarn format
+        run: yarn formate
         env:
           CI: true
 
@@ -36,10 +36,10 @@ jobs:
         env:
           CI: true
 
-      # - name: Relay
-      #   run: yarn web:relay
-      #   env:
-      #     CI: true
+      - name: Relay
+        run: yarn web:relay
+        env:
+          CI: true
 
       - name: Typecheck
         run: yarn typecheck
